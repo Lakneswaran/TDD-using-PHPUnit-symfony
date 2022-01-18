@@ -9,6 +9,10 @@ Learning Test Driven Development (TDD)
 
 - PHPUnit 9.5.11 -> ./vendor/bin/phpunit --version
 
+- $ php bin/console doctrine:database:create
+- $ php bin/console make:migration
+- $ php bin/console doctrine:migrations:migrate
+
 
 
 
