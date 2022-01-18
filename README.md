@@ -13,6 +13,7 @@ Learning Test Driven Development (TDD)
 - $ php bin/console make:migration
 - $ php bin/console doctrine:migrations:migrate
 
+- composer require symfony/asset
 
 
 

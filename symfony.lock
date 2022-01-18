@@ -201,6 +201,9 @@
     "sebastian/version": {
         "version": "3.0.2"
     },
+    "symfony/asset": {
+        "version": "v6.0.1"
+    },
     "symfony/cache": {
         "version": "v6.0.2"
     },
