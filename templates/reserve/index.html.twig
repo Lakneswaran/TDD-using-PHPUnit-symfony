@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+
+{% for room in rooms %}
+
+    Welcome to {{room.name}}  
+
+ {% endfor %}
+
+{% endblock %}
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+
+
+
+
+       <div class="row align-items-center">
+       
+            <div class=" col-sm-5 col-md-6 form-group">
+           Start-Date:
+                <div class='input-group date' id='datetimepicker1'>
+                   
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+
+            <div class=" col-sm-5 col-md-6 form-group">
+            End-Date
+                <div class='input-group date' id='datetimepicker2'>
+                
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            </div>
+            <button type="submit" class="btn-btn-primary">Save</button>
+</div>
+
+    
+    <script type="text/javascript">
+        $(function() {
+            $('#datetimepicker1').datetimepicker();
+        });
+           $(function() {
+            $('#datetimepicker2').datetimepicker();
+        });
+    </script>
+
+{% endblock %}

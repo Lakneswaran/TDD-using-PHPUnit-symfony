@@ -15,5 +15,7 @@ Learning Test Driven Development (TDD)
 
 - composer require symfony/asset
 
+- $ bin/console make:test
+
 
 
