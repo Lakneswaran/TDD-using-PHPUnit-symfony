@@ -84,4 +84,25 @@ class Bookings
 
         return $this;
     }
+
+
+    
+public function checkTime(DateTime $start, DateTime $end): bool
+{
+    $diffInterval = $end->diff($start);
+    $diffDay = $diffInterval->d;
+    $diffMonth = $diffInterval->m;
+    $diffYear = $diffInterval->y;
+    $diffHours = $diffInterval->h;
+    $diffMinutes = $diffInterval->i;
+
+    $time = ($diffHours * 60) + $diffMinutes;
+
+    if($diffDay == 0 && $diffMonth == 0 && $diffYear == 0 && $time >= 0 && $time <= 240){
+
+       return true;
+
+    }
+    return false;
+}
 }
