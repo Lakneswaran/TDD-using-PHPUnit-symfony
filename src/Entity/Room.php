@@ -24,6 +24,10 @@ class Room
     #[ORM\OneToOne(mappedBy: 'room', targetEntity: Bookings::class, cascade: ['persist', 'remove'])]
     private $bookings;
 
+    public function __construct(bool $onlyForPremiumMembers)
+    {
+        $this->onlyForPremiumMembers= $onlyForPremiumMembers;
+    }
  
     public function getId(): ?int
     {
@@ -72,7 +76,7 @@ class Room
     }  
 
     function canBook(User $user) {
-        return ($this->getOnlyForPremiumMembers() && $user->getPremiumMember() || !$this->getOnlyForPremiumMembers());
+        return ($this->getOnlyForPremiumMembers() && $user->getPremiumMember()) || !$this->getOnlyForPremiumMembers();
     }
 
   

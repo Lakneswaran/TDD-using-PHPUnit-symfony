@@ -6,9 +6,9 @@ use PHPUnit\Framework\TestCase;
 use App\Entity\Room;
 use App\Entity\User;
 
-class CheckRoomAvailabilityTest extends TestCase
+class CheckRoomAvailabiltyTest extends TestCase
 {
-    private function dataProviderForPremiumRoom() : array
+    public function dataProviderForPremiumRoom() : array
     {
         return [
             [true, true, true],
