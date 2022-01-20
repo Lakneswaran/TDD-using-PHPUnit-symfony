@@ -3,8 +3,10 @@
 namespace App\Tests;
 
 use PHPUnit\Framework\TestCase;
+use App\Entity\Room;
+use App\Entity\User;
 
-class CheckRoomAvailabiltyTest extends TestCase
+class CheckRoomAvailabilityTest extends TestCase
 {
     private function dataProviderForPremiumRoom() : array
     {
@@ -21,10 +23,12 @@ class CheckRoomAvailabiltyTest extends TestCase
      * @dataProvider dataProviderForPremiumRoom
      */
     public function testPremiumRoom(bool $roomVar, bool $userVar, bool $expectedOutput): void
-
+    {
         $room = new Room($roomVar);
         $user = new User($userVar);
 
         $this->assertEquals($expectedOutput, $room->canBook($user));
     }
 }
+
+
