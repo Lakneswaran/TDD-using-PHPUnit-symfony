@@ -54,6 +54,30 @@ class CheckRoomAvailabiltyTest extends TestCase
         $booking = new Bookings();
         $this->assertEquals($expectedOutput, $booking->checkTime($start, $end));
     }
+
+    public function dataProviderForCheckUserCredit() : array
+    {
+        new DateTime();
+
+        return [
+            [new DateTime('2020-12-12 10:05:05'), new DateTime('2020-12-12 14:05:05'), 15, true],
+            [new DateTime('2020-12-12 10:05:05'), new DateTime('2020-12-12 18:05:05'), 5, false],
+            [new DateTime('2020-12-12 10:05:05'), new DateTime('2020-12-12 10:05:05'), 500, true],
+            [new DateTime('2020-12-12 10:05:05'), new DateTime('2020-12-12 14:25:05'), 2, false],
+            [new DateTime('2020-12-12 10:05:05'), new DateTime('2020-12-12 14:25:05'), 7.8, true],
+            [new DateTime('2020-12-12 10:05:05'), new DateTime('2020-12-12 14:25:05'), -5, false],
+        ];
+    }
+     /**
+     * function has to start with Test
+     * @dataProvider dataProviderForCheckUserCredit
+     */
+    public function checkUserCredit(DateTime $start, DateTime $end, int $credit, bool $expectedOutput){
+        $booking = new User(false);
+        $this->assertEquals($expectedOutput, $booking->checkCredit($start, $end, $credit ));
+    }
+
+
 }
 
 

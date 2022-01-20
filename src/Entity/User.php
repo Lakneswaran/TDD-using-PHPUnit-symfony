@@ -136,4 +136,26 @@ class User
 
         return $this;
     }
+
+  
+
+    public function checkCredit($start, $end, $credit): bool
+    {
+        $diffInterval = $end->diff($start);
+        $diffHours = $diffInterval->h;
+        $diffMinutes = $diffInterval->i;
+
+        $time = ($diffHours * 60) + $diffMinutes;
+
+        if($time * 0.03 < $credit){
+            return true;
+        }elseif($time * 0.03 == $credit){
+            return true;
+        }elseif($credit < 0){
+            return false;
+        }else{
+            return false;
+        }
+    }
+
 }
